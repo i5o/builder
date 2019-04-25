@@ -2,7 +2,7 @@ kind: pipeline
 name: default
 steps:
 - name: build
-  image: ubuntu:trusty
+  image: docker
   commands:
    - apt update
    - apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
@@ -12,3 +12,10 @@ steps:
    - apt install docker-ce kpartx qemu-user-static aria2 tree python-requests wget jq parted unzip -y
    - service docker stop && rm -rf /var/lib/docker && service docker start
    - mkdir images && PATH=./node_modules/.bin:$PATH ./builder --noninteractive
+
+
+services:
+  docker:
+    image: ubuntu:trusty
+    command: [ "-v /dev:/dev" ]
+    privileged: true
