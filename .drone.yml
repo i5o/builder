@@ -13,3 +13,5 @@ steps:
    - apt install docker-ce kpartx qemu-user-static aria2 tree python-requests wget jq parted unzip -y
    - service docker stop && rm -rf /var/lib/docker && service docker start
    - mkdir images && PATH=./node_modules/.bin:$PATH ./builder --noninteractive
+  environment:
+   DRONE_ADMIN: root
