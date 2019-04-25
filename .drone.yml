@@ -2,7 +2,7 @@ kind: pipeline
 name: default
 steps:
 - name: build
-  image: ubuntu/trusty
+  image: ubuntu:trusty
   commands:
    - apt update
    - apt install docker-ce kpartx qemu-user-static aria2 tree python-requests
