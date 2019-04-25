@@ -5,10 +5,10 @@ steps:
   image: ubuntu:trusty
   commands:
    - apt update
-   - apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+   - apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
    - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
    - add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
    - apt update
-   - apt install docker-ce kpartx qemu-user-static aria2 tree python-requests
+   - apt install docker-ce kpartx qemu-user-static aria2 tree python-requests -y
    - service docker stop && rm -rf /var/lib/docker && service docker start
    - mkdir images && PATH=./node_modules/.bin:$PATH ./builder --noninteractive
