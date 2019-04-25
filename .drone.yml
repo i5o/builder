@@ -9,6 +9,6 @@ steps:
    - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
    - add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
    - apt update
-   - apt install docker-ce kpartx qemu-user-static aria2 tree python-requests -y
+   - apt install docker-ce kpartx qemu-user-static aria2 tree python-requests wget jq parted -y
    - service docker stop && rm -rf /var/lib/docker && service docker start
    - mkdir images && PATH=./node_modules/.bin:$PATH ./builder --noninteractive
